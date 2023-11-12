@@ -48,3 +48,12 @@ string str1 = "Hello", str2 = "World";
 string resultadoIgualdade = str1 == str2 ? "iguais" : "diferentes";
 Console.WriteLine("As strings str1 e str2 são " + resultadoIgualdade);
 #endregion
+
+#region exercício 7 - Operadores lógicos
+Console.WriteLine("\n####### EXERCÍCIO 7 #######\n");
+
+bool condicao1 = true, condicao2 = false;
+string resposta = condicao1 == true && condicao2 == true ? "Sim" : "Não";
+
+Console.WriteLine("As duas condições são verdadeiras? Resposta = " + resposta);
+#endregion
