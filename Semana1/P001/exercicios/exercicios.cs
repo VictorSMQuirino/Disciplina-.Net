@@ -57,3 +57,12 @@ string resposta = condicao1 == true && condicao2 == true ? "Sim" : "Não";
 
 Console.WriteLine("As duas condições são verdadeiras? Resposta = " + resposta);
 #endregion
+
+#region exercício 8 - Desafio de mistura de operadores
+Console.WriteLine("\n####### EXERCÍCIO 8 #######\n");
+
+int num1 = 7, num2 = 3, num3 = 10;
+string resultado = num1 > num2 && num3  == num1 + num2 ? "Sim" : "Não";
+Console.WriteLine("A variável num1 é maior que num2 e num3 é igual a num1 + num2?");
+Console.WriteLine("Resposta = " + resultado);
+#endregion
