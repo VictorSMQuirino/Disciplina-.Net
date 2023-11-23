@@ -61,16 +61,22 @@ do {
             if(isListEmpty()) break;
 
             Console.Write("Digite o id da tarefa a ser excluída: ");
-            int id = Console.Read();
+            int id = int.Parse(Console.ReadLine());
+            bool taskRemoved = false;
             foreach(Task t in tasks){
                 if(t.Id == id){
                     tasks.Remove(t);
+                    taskRemoved = true;
                     Console.WriteLine("Tarefa removida com successo!");
                     pauseTerminal();
+                    break;
                 }
             }
-            Console.WriteLine("Não existe uma tarefa com esse id!");
-            pauseTerminal();
+
+            if(!taskRemoved){
+                Console.WriteLine("Não existe uma tarefa com esse id!");
+                pauseTerminal();
+            }
             break;
         case 3:
             Console.Clear();
@@ -133,17 +139,22 @@ do {
 
             Console.Write("Digite o id da tarefa para marca-la como concluida: ");
             id = int.Parse(Console.ReadLine());
+            bool markedTask = false;
 
             foreach(Task t in tasks){
                 if(t.Id == id){
                     t.CompleteTask();
+                    markedTask = true;
                     Console.WriteLine("Tarefa marcada como concluida!");
                     pauseTerminal();
                     break;
                 }
             }
-            Console.WriteLine("Nao existe uma tarefa com esse id!");
-            pauseTerminal();
+
+            if(!markedTask){
+                Console.WriteLine("Nao existe uma tarefa com esse id!");
+                pauseTerminal();
+            }
 
             break;
         case 0:
