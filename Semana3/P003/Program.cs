@@ -5,7 +5,7 @@ using System.Globalization;
 CultureInfo culture = CultureInfo.CreateSpecificCulture("pt-br");
 
 List<(string code, string name, int quantity, double price)> products = new();
-products.Add(("abc", "Computador", 15, 1500.00));
+//products.Add(("abc", "Computador", 15, 1500.00));
 
 string option;
 
