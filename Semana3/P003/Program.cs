@@ -47,7 +47,7 @@ void registerProduct(){
         Console.Write("Código do produto: ");
         code = Console.ReadLine()!;
 
-        if(string.IsNullOrEmpty(code)) 
+        if(string.IsNullOrWhiteSpace(code)) 
             throw new ArgumentException("O código do produto não pode ser uma string vazia! Tente novamente.");
 
         if(products.Any(p => p.code == code)){
@@ -65,7 +65,7 @@ void registerProduct(){
         Console.Write("Nome do produto: ");
         name = Console.ReadLine()!;
 
-        if(string.IsNullOrEmpty(name))
+        if(string.IsNullOrWhiteSpace(name))
             throw new ArgumentException("O nome do produto não pode ser uma string vazia! Tente novamente");
     } catch (ArgumentException ex) {
         Console.WriteLine(ex.Message);
@@ -92,7 +92,7 @@ void consultProduct(){
         Console.Write("Digite o código do produto para consultar: ");
         code = Console.ReadLine()!;
 
-        if(string.IsNullOrEmpty(code)) 
+        if(string.IsNullOrWhiteSpace(code)) 
             throw new ArgumentException("O código do produto não pode ser uma string vazia! Tente novamente");
     } catch (ArgumentException ex){
         Console.WriteLine(ex.Message);
@@ -127,7 +127,7 @@ void updateStock(){
         Console.Write("Digite o código do produto que deseja atualizar: ");
         code = Console.ReadLine()!;
 
-        if(string.IsNullOrEmpty(code)) 
+        if(string.IsNullOrWhiteSpace(code)) 
             throw new ArgumentException("O código do produto não pode ser uma string vazia! Tente novamente");
     } catch (ArgumentException ex){
         Console.WriteLine(ex.Message);
