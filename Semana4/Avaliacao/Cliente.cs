@@ -5,7 +5,7 @@ public class Cliente : Pessoa
     public string? EstadoCivil {
         get{return estadoCivil;} 
         set{
-            if(value != "solteiro" && value != "casado")
+            if(value.ToLower() != "solteiro" && value.ToLower() != "casado")
                 throw new EstadoCivilException("O estado civil deve ser igual a 'solteiro' ou 'casado'");
             else estadoCivil = value;
         }

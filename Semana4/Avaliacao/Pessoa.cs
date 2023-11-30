@@ -2,8 +2,18 @@ namespace Avaliacao;
 public class Pessoa
 {
     private string? cpf;
+    private DateTime dataNascimento;
     public string? Nome {get; set;}
-    public DateTime DataNascimento {get; set;}
+    public DateTime DataNascimento {
+        get {return dataNascimento;} 
+        set {
+            if(DateTime.TryParse(value.ToString(), out dataNascimento)){
+                dataNascimento = value;
+            } else {
+                throw new DataInvalidaException("Data invalida!");
+            }
+        }
+        }
     public int Idade {
         get{
             int idade = DateTime.Now.Year - DataNascimento.Year;

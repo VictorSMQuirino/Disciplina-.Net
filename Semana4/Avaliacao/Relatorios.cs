@@ -31,7 +31,7 @@ public static class Relatorios
     }
 
     public static void clientesComProfissaoInformada(List<Cliente> clientes, string prof){
-        var lista = clientes.Where(c => c.Profissao.Contains(prof)).ToList();
+        var lista = clientes.Where(c => c.Profissao.ToLower().Contains(prof.ToLower())).ToList();
         Console.WriteLine($"Clientes com a profissao {prof}");
         lista.ForEach(c => Console.WriteLine($"{c.Nome} - {c.Cpf}"));
     }
@@ -41,6 +41,7 @@ public static class Relatorios
         List<Pessoa> pessoas = advogados.Cast<Pessoa>().Concat(clientes).ToList();
         var lista = pessoas.Where(p => p.DataNascimento.Month == mes).ToList();
 
-        Console.WriteLine($"Aniversariantes do mes de {}");
+        Console.WriteLine($"Aniversariantes do mes de {meses[mes-1]}");
+        lista.ForEach(p => Console.WriteLine($"{p.Nome} - {p.Cpf}"));
     }
 }
