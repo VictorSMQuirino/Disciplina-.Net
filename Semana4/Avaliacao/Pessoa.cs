@@ -7,13 +7,19 @@ public class Pessoa
     public DateTime DataNascimento {
         get {return dataNascimento;} 
         set {
-            if(DateTime.TryParse(value.ToString("yyyy-MM-dd"), out dataNascimento)){
-                dataNascimento = value;
+            if(DateTime.TryParse(value.ToString(), out dataNascimento)){
             } else {
                 throw new DataInvalidaException("Data invalida!");
             }
         }
-        }
+    }
+
+    // partial void setaData(string data){
+    //     if(DateTime.TryParse(data, out dataNascimento)){
+    //         DataNascimento = data;
+    //     }
+    // }
+
     public int Idade {
         get{
             int idade = DateTime.Now.Year - DataNascimento.Year;
