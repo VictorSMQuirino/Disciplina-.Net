@@ -6,7 +6,7 @@ public class Cliente : Pessoa
         get{return estadoCivil;} 
         set{
             if(value != "solteiro" && value != "casado")
-                throw new ArgumentException("O estado civil deve ser igual a 'solteiro' ou 'casado'");
+                throw new EstadoCivilException("O estado civil deve ser igual a 'solteiro' ou 'casado'");
             else estadoCivil = value;
         }
     }

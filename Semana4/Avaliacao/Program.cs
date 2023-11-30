@@ -56,4 +56,23 @@ try {
     Cliente cl = new Cliente();
     cl.Nome = "Ubirapildes";
     cl.DataNascimento = new DateTime(25, 3, 1995);
+    cl.Cpf = "01234567893";
+    cl.EstadoCivil = "Solteiro";
+    cl.Profissao = "Programador";
+    Colecoes.adicionaCliente(clientes, cl);
+} catch(Exception ex) {
+    Console.WriteLine(ex.Message);
 }
+
+try {
+    Cliente cl = new Cliente();
+    cl.Nome = "Clindoescléia";
+    cl.DataNascimento = new DateTime(25, 10, 1975);
+    cl.Cpf = "01234567894";
+    cl.EstadoCivil = "Casado";
+    cl.Profissao = "Engenheiro";
+    Colecoes.adicionaCliente(clientes, cl);
+} catch(Exception ex) {
+    Console.WriteLine(ex.Message);
+}
+

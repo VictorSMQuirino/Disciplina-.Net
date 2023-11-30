@@ -1,29 +1,46 @@
 namespace Avaliacao;
 public static class Relatorios
 {
-    public static List<Advogado> advogadosComIdadeEntreValores(List<Advogado> advogados, int min, int max){
-        return advogados.Where(a => a.Idade >= min && a.Idade <= max).ToList();
+    public static void advogadosComIdadeEntreValores(List<Advogado> advogados, int min, int max){
+        var lista = advogados.Where(a => a.Idade >= min && a.Idade <= max).ToList();
+
+        Console.WriteLine($"Advogados com a idade entre {min} e {max}:");
+        lista.ForEach(a => {
+            Console.WriteLine($"{a.Nome} - {a.Cpf}");
+        });
     }
 
-    public static List<Cliente> clientesComIdadeEntreValores(List<Cliente> clientes, int min, int max){
-        return clientes.Where(c => c.Idade >= min && c.Idade <= max).ToList();
+    public static void clientesComIdadeEntreValores(List<Cliente> clientes, int min, int max){
+        var lista = clientes.Where(c => c.Idade >= min && c.Idade <= max).ToList();
+        Console.WriteLine($"Clientes com a idade entre {min} e {max}:");
+        lista.ForEach(c => {
+            Console.WriteLine($"{c.Nome} - {c.Cpf}");
+        });
     }
 
-    public static List<Cliente> clientesComEstadoCivilInformado(List<Cliente> clientes, string ec){
-        return clientes.Where(c => c.EstadoCivil == ec).ToList();
+    public static void clientesComEstadoCivilInformado(List<Cliente> clientes, string ec){
+        var lista = clientes.Where(c => c.EstadoCivil == ec).ToList();
+        Console.WriteLine($"Clientes com o estado civil {ec}");
+        lista.ForEach( c => Console.WriteLine($"{c.Nome} - {c.Cpf}"));
     }
 
-    public static List<Cliente> clientesEmOrdemAlfabetica(List<Cliente> clientes){
-        return clientes.OrderBy(c => c.Nome).ToList();
+    public static void clientesEmOrdemAlfabetica(List<Cliente> clientes){
+        var lista = clientes.OrderBy(c => c.Nome).ToList();
+        Console.WriteLine("Clientes ordenados:");
+        lista.ForEach(c => Console.WriteLine($"{c.Nome} - {c.Cpf}"));
     }
 
-    public static List<Cliente> clientesComProfissaoInformada(List<Cliente> clientes, string prof){
-        return clientes.Where(c => c.Profissao.Contains(prof)).ToList();
+    public static void clientesComProfissaoInformada(List<Cliente> clientes, string prof){
+        var lista = clientes.Where(c => c.Profissao.Contains(prof)).ToList();
+        Console.WriteLine($"Clientes com a profissao {prof}");
+        lista.ForEach(c => Console.WriteLine($"{c.Nome} - {c.Cpf}"));
     }
 
-    public static List<Pessoa> aniversariantesDoMes(List<Cliente> clientes, List<Advogado> advogados, int mes){
+    public static void aniversariantesDoMes(List<Cliente> clientes, List<Advogado> advogados, int mes){
+        string[] meses = {"janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"};
         List<Pessoa> pessoas = advogados.Cast<Pessoa>().Concat(clientes).ToList();
+        var lista = pessoas.Where(p => p.DataNascimento.Month == mes).ToList();
 
-        return pessoas.Where(p => p.DataNascimento.Month == mes).ToList();
+        Console.WriteLine($"Aniversariantes do mes de {}");
     }
 }
