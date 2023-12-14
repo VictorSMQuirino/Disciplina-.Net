@@ -1,6 +1,7 @@
+namespace Domain.Model;
 using Microsoft.EntityFrameworkCore;
 
-class TodoDb : DbContext
+public class TodoDb : DbContext
 {
     public TodoDb(DbContextOptions<TodoDb> options)
         : base(options) { }
